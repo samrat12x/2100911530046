@@ -1,6 +1,8 @@
+
 const { log } = require('console')
 const express = require('express')
 const cors = require('cors')
+const AccessTokenGenerator= require('./accessTokenGenerator')
 
 const port =3000;
 const productData=[
@@ -44,7 +46,7 @@ const app = express()
 app.use(cors())
 
 app.get('/categories/:categoryname', (req, res) => {
-   
+   AccessTokenGenerator();
     const categoryname= req.params.categoryname;
     res.send(productData);
 });
